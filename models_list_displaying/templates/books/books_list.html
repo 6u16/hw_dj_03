@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Каталог книг{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="header">
+            <h1><a href="/books">Каталог</a></h1>
+        </div>
+    
+        <div class="row">
+            {% comment %} <div class="book col-md-4">
+                <h2>Сияние</h2>
+                <p>Автор: Стивен Кинг</p>
+                <p>Дата публикации: 2018-09-10</p>
+            </div>
+            <div class="book col-md-4">
+                <h2>1984</h2>
+                <p>Автор: Джордж Оруэл</p>
+                <p>Дата публикации: 2015-03-11</p>
+            </div> {% endcomment %}
+            
+            
+            {% comment %} <div class="content">  ## Вертикальный столбец
+                {% for book in books %}
+                    
+                    <h2>{{ book.name }}</h2>
+                    <p>Автор: {{ book.author }}</p>
+                    <p>Дата публикации: {{ book.pub_date }}</p>
+                    
+                {% endfor %}
+            </div> {% endcomment %}
+            
+            {% for book in books %}
+                <div class="book col-md-4">
+                    <h2>{{ book.name }}</h2>
+                    <p>Автор: {{ book.author }}</p>
+                    <p>Дата публикации: <a href="/books/{{book.pub_date}}">{{book.pub_date}}</a></p>
+                </div>
+            {% endfor %}
+            
+        </div>
+        <p><a>------------------------</a></p>
+        
+        <p><a>Нажмите на дату публикации чтобы посмотреть книги вышедшие в это время</a></p>
+        
+
+    </div>
+{% endblock %}
